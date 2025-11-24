@@ -1,15 +1,18 @@
-from flask import Flask, render_template, request, redirect
+from dotenv import load_dotenv
+load_dotenv()
 import mysql.connector
-
-app = Flask(__name__)
+import os
 
 db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="Ragavi_31",
-    database="calculator_db"
+    host=os.getenv("DB_HOST"),
+    port=os.getenv("DB_PORT"),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASS"),
+    database=os.getenv("DB_NAME"),
+    ssl_ca="ca.pem"     # SSL certificate for Aiven
 )
 cursor = db.cursor(dictionary=True)
+
 
 
 @app.route("/")

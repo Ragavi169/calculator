@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="bg-black text-white">
+
+<div class="container mt-5">
+
+    <h2 class="text-center text-neon mb-4">Calculation History</h2>
+
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Num 1</th>
+                <th>Num 2</th>
+                <th>Operation</th>
+                <th>Result</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for row in history %}
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.num1 }}</td>
+                <td>{{ row.num2 }}</td>
+                <td>{{ row.operation }}</td>
+                <td>{{ row.result }}</td>
+                <td>{{ row.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between">
+        <a href="/" class="btn btn-secondary">Back</a>
+        <a href="/clear" class="btn btn-danger">Clear History</a>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.calculator-card {
+    background: #111;
+    border: 1px solid #0ff;
+    border-radius: 12px;
+}
+
+.input-dark {
+    background: #222;
+    border: none;
+    color: white;
+}
+
+.input-dark:focus {
+    outline: 2px solid #0ff;
+}
+
+.text-neon {
+    color: #0ff;
+}
+
+.neon-btn:hover {
+    box-shadow: 0 0 10px #0ff;
+    color: #0ff;
+}
